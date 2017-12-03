@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace MVVMExemplo
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace MVVMExemplo.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SobrePage : ContentPage
     {
-        public MainPage()
+        public SobrePage()
         {
             InitializeComponent();
         }

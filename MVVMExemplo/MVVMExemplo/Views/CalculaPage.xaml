@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMExemplo.Views.CalculaPage"
+             Title="Página Principal">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Button Text="Sobre" Command="{Binding SobreCommand}" />
+            <Entry Text="{Binding Quantidade}" Placeholder="Insira a quantidade(ml,g,cm)" Keyboard="Numeric"/>
+            <Entry Text="{Binding Valor}" Placeholder="Insira o preço do produto" Keyboard="Numeric"/>
+            <Button Text="Calcular" Command="{Binding CalcularCommand}"/>
+            <ListView ItemsSource="{Binding Historico}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Grid.Column="0" Grid.Row="0" Text="Preço do produto:"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding ValorP}"/>
+
+                                <Label Grid.Column="0" Grid.Row="1" Text="Preço calculado:"/>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding ValorC}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Limpar" Command="{Binding LimparCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
